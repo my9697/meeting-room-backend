@@ -1,0 +1,22 @@
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+
+@Entity({ name: '{{entityName}}' })
+export class {{sentenceCase entityName}} {
+  @PrimaryGeneratedColumn()
+  id: number;
+  @Column({
+    length: 50,
+    comment: '用户名',
+  })
+  username: string;
+  @CreateDateColumn()
+  createTime: Date;
+  @UpdateDateColumn()
+  updateTime: Date;
+}

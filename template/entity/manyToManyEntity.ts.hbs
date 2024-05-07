@@ -1,0 +1,12 @@
+import { Column, CreateDateColumn, Entity, JoinTable, ManyToMany,
+PrimaryGeneratedColumn, UpdateDateColumn, } from 'typeorm'; import {
+{{sentenceCase targetTable}}
+} from './{{targetTable}}.entity'; @Entity({ name: '{{entityName}}' }) export
+class
+{{sentenceCase entityName}}
+{ @PrimaryGeneratedColumn() id: number; @Column({ length: 50, comment: '用户名',
+}) username: string; @CreateDateColumn() createTime: Date; @UpdateDateColumn()
+updateTime: Date; @ManyToMany(() =>
+{{sentenceCase targetTable}}) @JoinTable({ name: '{{entityName}}_{{targetTable}}',
+}) roles:
+{{sentenceCase targetTable}}[]; }
